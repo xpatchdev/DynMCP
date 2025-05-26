@@ -1,0 +1,331 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "justMyCode": false,
+    "configurations": [
+        {
+            "name": "Debug Current Python File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "purpose": ["debug-in-terminal"],
+            "stopOnEntry": false,
+            "showReturnValue": true,
+            "redirectOutput": true,
+            "django": false,
+            "jinja": true,
+            "sudo": false,
+            "subProcess": true,
+            "postDebugTask": "post-debug-command",
+            "args": [
+                // "--input", "${workspaceFolder}/data/input.json",
+                // "--output", "${workspaceFolder}/data/output.json",
+                // "--verbose",
+                // "--debug",
+                // "--config", "${workspaceFolder}/config.json",
+                // "--log-level", "debug",
+                // "--no-cache",
+                // "--force",
+                // "-h", "--help",
+                // "-v", "--version"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "MCP_URL": "http://localhost:8000/sse",
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "MODE": "CLI",
+                "PERSIST_DIR": "${workspaceFolder}/chroma_db/api_expert",
+                "DEBUG": "1",
+                "LOG_LEVEL": "DEBUG",
+                "ENVIRONMENT": "development"
+            },
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "API Expert - ask_an_expert CLI",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/ask_an_expert.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "postDebugTask": "post-debug-command",
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "MODE": "CLI",
+                "PERSIST_DIR": "${workspaceFolder}/chroma_db/api_expert"
+            }
+        },
+        {
+            "name": "API Expert - ask_an_expert MCP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/ask_an_expert.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "postDebugTask": "post-debug-command",
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "MODE": "MCP",
+                "PERSIST_DIR": "${workspaceFolder}/chroma_db/api_expert"
+            }
+        },
+        {
+            "name": "crawl4ai - asynctest.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/asynctest.py",
+            "console": "integratedTerminal",
+            // "args": ["--rag-markdown-dir", "./books/"],
+            "justMyCode": false,
+            "postDebugTask": "post-debug-command",
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama", // "ollama" or "openai"
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/books/",
+            }
+        },
+        {
+            "name": "RAG Markdown - langchain_1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/langchain_1.py",
+            "console": "integratedTerminal",
+            // "args": ["--rag-markdown-dir", "./books/"],
+            "justMyCode": false,
+            "postDebugTask": "post-debug-command",
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama", // "ollama" or "openai"
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/books/",
+            }
+        },
+        {
+            "name": "RAG Markdown - chroma_rag_langchain",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/chroma_rag_langchain.py",
+            "console": "integratedTerminal",
+            // "args": ["--rag-markdown-dir", "./books/"],
+            "justMyCode": false,
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama", // "ollama" or "openai"
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/books/",
+            }
+        },
+        {
+            "name": "RAG Markdown - rag_langchain",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rag_langchain.py",
+            "console": "integratedTerminal",
+            // "args": ["--rag-markdown-dir", "./books/"],
+            "justMyCode": false,
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama", // "ollama" or "openai"
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/books/",
+            }
+        },{
+            "name": "ToDo Langchain MCP ",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/todo_langchain.py",
+            "console": "integratedTerminal",
+            "preLaunchTask": "start-pouchdb",
+            "postDebugTask": "stop-pouchdb",
+            "env": {
+                "SERVER_API_HOSTS": "http://172.23.192.1:11435",
+                "ENABLE_CHAT_HISTORY": "false",
+                "MODEL": "qwen2.5-0.5b-instruct",
+                // "MODE": "tool", // *agentic* "tool" or "mcp"
+                "MODE": "mcp", // *agentic* "tool" or "mcp"
+                "PROVIDER": "openai",
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "todo",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+            }
+        },{
+            "name": "Tool Tasks Langchain ",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tasks_langchain.py",
+            "console": "integratedTerminal",
+            "env": {
+                // "SERVER_API_HOST" :"http://10.0.0.245:11434",
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "MODEL": "qwen2.5-0.5b-instruct",
+                "TASKS_BACKEND": "json",
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "tasks",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+                "TASKS_FILE": "${workspaceFolder}/tasks.json"
+            }
+        },
+
+        {
+            "name": "Projects Langchain ",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/projects_langchain.py",
+            "console": "integratedTerminal",
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "MODEL": "qwen2.5-0.5b-instruct",
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "projects",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+            }
+        },
+
+{
+            "name": "Python Debugger: ToDo Langchain Tool",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/todo_langchain.py",
+            "console": "integratedTerminal",
+            "preLaunchTask": "start-pouchdb",
+            "postDebugTask": "stop-pouchdb",
+            "env": {
+                "SERVER_API_HOSTS": "http://172.23.192.1:11435",
+                "ENABLE_CHAT_HISTORY": "false",
+                "MODEL": "qwen2.5-0.5b-instruct",
+                "MODE": "tool", // *agentic* "tool" or "mcp"
+                "PROVIDER": "openai",
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "todo",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+            }
+        },
+
+
+        {
+            "name": "Python Debugger: ToDo Langchain ",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/todo_langchain.py",
+            "console": "integratedTerminal",
+            "preLaunchTask": "start-pouchdb",
+            "postDebugTask": "stop-pouchdb",
+            "env": {
+                "SERVER_API_HOSTS": "http://172.23.192.1:11435",
+                "ENABLE_CHAT_HISTORY": "false",
+                "MODEL": "qwen2.5-0.5b-instruct",
+                // "MODE": "tool", // *agentic* "tool" or "mcp"
+                "MODE": "mcp", // *agentic* "tool" or "mcp"
+                "PROVIDER": "openai",
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "todo",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+            }
+        },
+
+        {
+            "name": "Migrate JSON to CouchDB",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/migrate_db.py",
+            "console": "integratedTerminal",
+            "args": ["--overwrite", "true"],
+            "env": {
+                "COUCHDB_URL": "http://localhost:5984",
+                "COUCHDB_DB": "tasks",
+                "COUCHDB_USER": "",
+                "COUCHDB_PASSWORD": "",
+                "TASKS_FILE": "${workspaceFolder}/tasks.json"
+            }
+        },
+
+
+        {
+            "name": "API Expert - Test Crawler",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/test_expert_crawler.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--url", "https://www.pygame.org/docs/genindex.html",
+                "--output-dir", "${workspaceFolder}/test_docs",
+                "--domain", "pygame-docs",
+                "--max-pages", "2"
+            ],
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text"
+            }
+        },
+        {
+            "name": "API Expert - From URL",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/ask_an_expert.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--from-url", "https://www.pygame.org/docs/",
+                "--output-dir", "${workspaceFolder}/test_docs",
+                "--domain", "pygame-docs",
+                "--max-pages", "10"
+            ],
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b",
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "PERSIST_DIR": "${workspaceFolder}/chroma_db/api_expert",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/chroma_db/api_expert/temp_markdown/"
+            }
+        },
+        {
+            "name": "API Expert - From Directory",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/ask_an_expert.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--from-dir", "${workspaceFolder}/books",
+                "--domain", "tutorials"
+            ],
+            "env": {
+                "SERVER_API_HOST": "http://172.23.192.1:11435",
+                "SERVER_TYPE": "ollama",
+                "MODEL": "qwen3:1.7b", 
+                "EMBEDDING_MODEL": "nomic-embed-text",
+                "PERSIST_DIR": "${workspaceFolder}/books/",
+                "RAG_MARKDOWN_DIR": "${workspaceFolder}/books/"
+            }
+        }
+    ]
+}

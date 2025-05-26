@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "start-pouchdb",
+      "type": "shell",
+      "command": "./node_modules/pouchdb-server/bin/pouchdb-server --port 5984",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": ".*",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*pouchdb-server has started.*",
+          "endsPattern": ".*pouchdb-server has started.*"
+        }
+      }
+    },
+    {
+      "label": "stop-pouchdb",
+      "type": "shell",
+      "command": "pkill -f 'pouchdb-server' || echo 'No PouchDB server running'",
+      "problemMatcher": []
+    },
+    {
+      "label": "post-debug-command",
+      "type": "shell",
+      "command": "echo 'Debug session ended at $(date)' >> ${workspaceFolder}/debug.log",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

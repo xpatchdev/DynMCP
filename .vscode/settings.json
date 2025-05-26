@@ -1,0 +1,10 @@
+{
+    "python.REPL.enableREPLSmartSend": false,
+    "files.exclude": {
+        "log.txt": true
+    },
+    "search.exclude": {
+        "log.txt": true
+    },
+    "audioCues.enabled": "off"
+}
